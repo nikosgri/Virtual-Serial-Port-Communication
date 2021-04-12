@@ -30,10 +30,10 @@ Terminal 3
 At this point you can start send AT-Commands to the server from clients terminal.
 ## OPERATIONS 
 * Type help command to see the guide for you AT messages and also which registers are available at that time.
-![Help_command](two.png)
+![Help_command](/img/two.png)
 * If you type help command you are going to see the import message. So that is an operation where you can add another one register and set you num bounds either distinct or not for example if you enter (**y**) at import message :
-![import](three.png)In case of you dont want to add another register simple enter (**n**) at import message. At this time you can type again the help command in order to check the update of "Available AT commands" : 
-![Update_help_command](four.png)
+![import](/img/three.png)In case of you dont want to add another register simple enter (**n**) at import message. At this time you can type again the help command in order to check the update of "Available AT commands" : 
+![Update_help_command](/img/four.png)
 * After that you can start sending messages to the server and get responses only for registers that you have import or default registers (**REG1 - REG2**). Start playing with REG1 AND REG2 first, in order to see how reponses works.
 
 
