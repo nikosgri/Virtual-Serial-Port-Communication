@@ -31,7 +31,7 @@ char* informations[REGS_NUM]; /*Informations about registers*/
 int count_registers = 0;
 char* receive_message;
 
-/*
+/**
 *@name  Initialize       : If client imports a new register then it handles to initialize proper parameters
 *@param receive_message  : A pointer to receiving message 
 return                   : Nothing 
@@ -59,7 +59,7 @@ void initialize(char* receive_message)
 
     informations[count_registers] = useful_info; /* inser data into it */
 }
-/*
+/**
 *@name  StartUp : Handles to set up  parameters and initialize first values 
 *@param request : Information about registers
 *@return        : Nothing 
@@ -91,7 +91,7 @@ void start_up(request_t* request)
     informations[2] = "1|2|3";
     count_registers = 2;
 }
-/*
+/**
 *@name isValid  : Parses the value where client wants to insert at the specific register and determines if it is valid or not according to specific orders.
 *@param value   : The specific value where client wants to insert
 *@param request : Information about registers
@@ -131,7 +131,7 @@ int is_valid(char* value, request_t* request)
         }
     }
 }
-/*
+/**
 *@name parse_request : Parses a received message extract informations from it. Specifically , split receiving message and determines the ID and operation of it.
 *@param buffer       : A pointer to the received message
 *@return             : Initializes request on Success. NULL on Error.
@@ -175,7 +175,7 @@ request_t* parse_request(char* buffer)
 
     return request;
 }
-/*
+/**
 *@name process_request : Process a client request. Manage valid or invalid informations and send response to client via serial port. 
 *@param request        : Informations about register
 *@param fd             : The accept file descriptor
