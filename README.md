@@ -1,4 +1,4 @@
-# SERIAL PORT COMMUNICATION 
+# VIRTUAL SERIAL PORT COMMUNICATION 
 The solution of this **task** consist of two different applications **server** and **client** that communicate via a serial port connection through socat. Server waits for commands and sends back the appropriate responses. Reading and writing by both of apps is from tty-like files.Genaraly it is an "AT-Command based Server" and a "Cli-enabled client" where the exchanged payload is ASCII string. A small example is :
 
 1) AT-Command  Format : "AT+"CMD" 
