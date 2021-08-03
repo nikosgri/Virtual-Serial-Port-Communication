@@ -1,4 +1,3 @@
-#include "toptions/term_options.h" /* Header file full location*/
 #include <errno.h>
 #include <fcntl.h> /*file control*/
 #include <stdio.h> /*standard input output*/
@@ -7,6 +6,7 @@
 #include <sys/types.h>
 #include <termios.h> /* posix terminal*/
 #include <unistd.h>
+#include "toptions/term_options.h" /* Header file full location*/
 
 /* Special Defines */
 #define SIZE 1000
@@ -34,7 +34,7 @@ char* receive_message;
 /**
 *@name  Initialize       : If client imports a new register then it handles to initialize proper parameters
 *@param receive_message  : A pointer to receiving message 
-return                   : Nothing 
+*@retval                 : Nothing 
 */
 void initialize(char* receive_message)
 {
@@ -62,7 +62,7 @@ void initialize(char* receive_message)
 /**
 *@name  StartUp : Handles to set up  parameters and initialize first values 
 *@param request : Information about registers
-*@return        : Nothing 
+*@retval        : Nothing 
 */
 void start_up(request_t* request)
 {
@@ -95,7 +95,7 @@ void start_up(request_t* request)
 *@name isValid  : Parses the value where client wants to insert at the specific register and determines if it is valid or not according to specific orders.
 *@param value   : The specific value where client wants to insert
 *@param request : Information about registers
-*@return 	    : 1 or 0.
+*@retval 	    : 1 or 0.
 */
 int is_valid(char* value, request_t* request)
 {
@@ -134,7 +134,7 @@ int is_valid(char* value, request_t* request)
 /**
 *@name parse_request : Parses a received message extract informations from it. Specifically , split receiving message and determines the ID and operation of it.
 *@param buffer       : A pointer to the received message
-*@return             : Initializes request on Success. NULL on Error.
+*@retval             : Initializes request on Success. NULL on Error.
 */
 request_t* parse_request(char* buffer)
 {
@@ -179,7 +179,7 @@ request_t* parse_request(char* buffer)
 *@name process_request : Process a client request. Manage valid or invalid informations and send response to client via serial port. 
 *@param request        : Informations about register
 *@param fd             : The accept file descriptor
-*@return               : Nothing 
+*@retval               : Nothing 
 */
 void process_request(request_t* request, int fd)
 {
