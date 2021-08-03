@@ -1,4 +1,3 @@
-#include "toptions/term_options.h" /*Header file full location*/
 #include <errno.h>
 #include <fcntl.h> /*file control*/
 #include <stdio.h> /*standard input output*/
@@ -7,6 +6,7 @@
 #include <sys/types.h>
 #include <termios.h> /*posix terminal*/
 #include <unistd.h>
+#include "toptions/term_options.h" /*Header file full location*/
 
 #define SIZE 100
 #define MESSAGE_SIZE 256
@@ -30,11 +30,11 @@ char* infos[SIZE] = { "\tAvailable AT  commands",
     "'REG2':Read the register-2 value ->Responce:'<int>'",
     "'REG2=?':Read the list of all allowed values for register-2 ->Responce:'1|2|3'",
     "'REG2=<int>' :Write the provided integer to register-2 Responce :'OK|InvalidInput" };
-/*
-*@name is_inserted : Detects whether the registry the user wants to import has already been imported or not.
-*@param name       : Points to register's name
-*@return           : "1" if is already inserted otherwise "0".
-*/
+/**
+ *@name is_inserted : Detects whether the registry the user wants to import has already been imported or not.
+ *@param name       : Points to register's name
+ *@retval           : "1" if is already inserted otherwise "0".
+ */
 int is_inserted(char* name)
 {
 
@@ -48,11 +48,11 @@ int is_inserted(char* name)
     }
     return 0;
 }
-/*
-*@name help_function   : Help User with AT-COMMANDS and give him a chance to create new registers
-*@param fd             : The accept file descriptor , in order to send proper message to server if user wants to insert new register.
-*@return    		   : Nothing
-*/
+/**
+ *@name help_function   : Help User with AT-COMMANDS and give him a chance to create new registers
+ *@param fd             : The accept file descriptor , in order to send proper message to server if user wants to insert new register.
+ *@retval    		   : Nothing
+ */
 void help_function(int fd)
 {
     char choice; /*User choice, in case of insert or not */
@@ -121,11 +121,11 @@ void help_function(int fd)
         printf("Continue Process.\n");
     }
 }
-/*
-*@name isValid : Parses the message of user and determines if it is an AT command
-*@param  msg   : User message 
-*@return       : 1 or 0.
-*/
+/**
+ *@name isValid : Parses the message of user and determines if it is an AT command
+ *@param  msg   : User message 
+ *@retval       : 1 or 0.
+ */
 int is_valid(char* msg)
 {
     char *token = NULL, *value = NULL, *token2 = NULL, *REG = NULL;
@@ -149,11 +149,11 @@ int is_valid(char* msg)
         }
     }
 }
-/*
-*@name write_message : Writting user's message to servers and waits for response.
-*@param 	fd		  : The accept file descriptor
-*@param 	msg		  : User message
-*@return 			  : Nothing
+/**
+ *@name write_message : Writting user's message to servers and waits for response.
+ *@param 	fd		  : The accept file descriptor
+ *@param 	msg		  : User message
+ *@return 			  : Nothing
 */
 void write_message(int fd, char* msg)
 {
